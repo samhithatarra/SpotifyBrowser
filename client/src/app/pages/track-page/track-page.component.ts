@@ -5,6 +5,7 @@ import { TrackData } from '../../data/track-data';
 import { AlbumData } from '../../data/album-data';
 import { TrackFeature } from '../../data/track-feature';
 
+
 @Component({
   selector: 'app-track-page',
   templateUrl: './track-page.component.html',
@@ -19,7 +20,18 @@ export class TrackPageComponent implements OnInit {
 
   ngOnInit() {
   	this.trackId = this.route.snapshot.paramMap.get('id');
+    
+
   	//TODO: Inject the spotifyService and use it to get the track data and it's audio features
+    // this.route.searchFor(this.searchCategory, this.searchString).then((data) => {
+    //   this.resources = data;
+    //   console.log(data);
+    // });
+
+    // this.track = this.route.get();
+    // this.audioFeatures = this.route.get();
+
+    
   }
 
 }

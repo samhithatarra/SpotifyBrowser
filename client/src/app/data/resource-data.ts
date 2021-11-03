@@ -4,8 +4,10 @@ export abstract class ResourceData {
 	imageURL:string;
 	id:string;
 	url:string;
+	
 
 	constructor(objectModel:{}) {
+		
 		this.name = objectModel['name'];
 		this.id = objectModel['id'];
 		if(objectModel['images'] && objectModel['images'].length > 0) {
@@ -19,5 +21,6 @@ export abstract class ResourceData {
 		if('spotify' in objectModel['external_urls']) {
 			this.url = objectModel['external_urls']['spotify'];
 		}
+		
 	}
 }
