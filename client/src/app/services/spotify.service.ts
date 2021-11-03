@@ -19,7 +19,15 @@ export class SpotifyService {
     //TODO: use the injected http Service to make a get request to the Express endpoint and return the response.
     //the http service works similarly to fetch(). It may be useful to call .toPromise() on any responses.
     //update the return to instead return a Promise with the data from the Express server
-    return Promise.resolve();
+    let finalUrl = this.expressBaseUrl + endpoint;
+
+    var promise = this.http.get(finalUrl).toPromise();
+
+    // parameter(s) in the then() method is the response, not the actual json data
+    return promise.then(function(response){
+      return response;
+    });
+
   }
 
   aboutMe():Promise<ProfileData> {
@@ -30,11 +38,40 @@ export class SpotifyService {
   }
 
   searchFor(category:string, resource:string):Promise<ResourceData[]> {
-    //TODO: identify the search endpoint in the express webserver (routes/index.js) and send the request to express.
-    //Make sure you're encoding the resource with encodeURIComponent().
+    
     //Depending on the category (artist, track, album), return an array of that type of data.
     //JavaScript's "map" function might be useful for this, but there are other ways of building the array.
-    return null;
+     
+    let encodedResource = encodeURIComponent(resource);
+
+    return this.sendRequestToExpress(`/search/${category}/${encodedResource}`).then((data) => {
+      if (data){console.log(data);
+      }
+      if(category == "artist"){
+        var artistArr:ArtistData[] = data["artists"]["items"].map(art => new ArtistData(art));
+        return artistArr; 
+      }
+      if(category == "album"){
+        var albumArr:AlbumData[] = data["albums"]["items"].map(alb => new AlbumData(alb));
+        return albumArr; 
+      }
+      if(category == "track"){
+        var trackArr:TrackData[] = data["tracks"]["items"].map(track => new TrackData(track));
+        return trackArr; 
+      }
+      
+    });
+
+    // items is an array of objs that i will parse with artist data, song data components i will use
+    // call .map() on array
+    
+    // let artistArray = items.map(artists => {
+    // return {
+    //  artist
+    //  }
+    //});
+   
+    // return null;
   }
 
   getArtist(artistId:string):Promise<ArtistData> {
