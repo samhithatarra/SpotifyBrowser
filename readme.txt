@@ -1,8 +1,8 @@
---Readme document for *Samhitha Tarra and Aliyah Clayton*, *samhitht@uci.edu and afclayto@uci.edy*, *samhitht and afclayto*--
+--Readme document for *Samhitha Tarra and Aliyah Clayton*, *samhitht@uci.edu and afclayto@uci.edu*, *samhitht and afclayto*--
 
 1. How many assignment points do you believe you completed (replace the *'s with your numbers)?
 
-*/10
+10/10
 - 1/1 Communicating with the webserver
 - 1/1 Populating information about the user
 - 3/3 Populating the search component
@@ -17,15 +17,16 @@
 
 
 3. What online resources did you consult when completing this assignment? (list specific URLs)
+    https://stackoverflow.com/questions/37533929/how-to-return-data-from-promise
     https://www.youtube.com/watch?v=Mz8lb81AAe4
-    Spotify API website
-
-
+    https://www.w3schools.com/angular/angular_model.asp
+    Spotify API website: https://developer.spotify.com/documentation/web-api/
 
 
 
 4. What classmates or other individuals did you consult as part of this assignment? What did you discuss?
-    Adrian Chu, Aliyah Clayton
+    Aliyah Clayton - 2nd half of Part 2 and on
+    Adrian Chu - 2nd half of Part 2
 
 
 
